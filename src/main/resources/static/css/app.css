@@ -1,0 +1,157 @@
+/* Estilos de Nexora. Primero se disena para celular y luego se ajusta para pantallas grandes. */
+
+:root {
+    --azul: #1f5fa8;
+    --azul-oscuro: #17487f;
+    --fondo: #f3f5f8;
+    --tarjeta: #ffffff;
+    --texto: #1d2733;
+    --suave: #5f6b7a;
+    --borde: #e1e6ed;
+    --verde: #1b7f3b;
+    --verde-fondo: #e6f4ea;
+    --ambar: #9a6400;
+    --ambar-fondo: #fdf3e1;
+    --rojo: #b3261e;
+    --rojo-fondo: #fce8e6;
+    --radio: 12px;
+    --menu-alto: 64px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.45;
+    padding-bottom: calc(var(--menu-alto) + env(safe-area-inset-bottom));
+}
+
+/* Barra superior */
+.barra {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--azul); color: #fff;
+}
+.marca { display: flex; align-items: center; gap: 10px; }
+.marca img { border-radius: 8px; background: #fff; }
+.marca strong { display: block; font-size: 18px; }
+.marca span { font-size: 12px; opacity: .85; }
+.estado-red { font-size: 12px; background: var(--rojo); padding: 4px 8px; border-radius: 99px; }
+
+/* Menu: abajo en celular */
+.menu {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 10;
+    display: flex; justify-content: space-around;
+    height: calc(var(--menu-alto) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    background: var(--tarjeta); border-top: 1px solid var(--borde);
+}
+.menu a {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    color: var(--suave); text-decoration: none; font-size: 12px;
+}
+.menu svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.menu a.activo { color: var(--azul); font-weight: 600; }
+
+/* Contenido */
+main { max-width: 960px; margin: 0 auto; padding: 16px; outline: none; }
+h1 { font-size: 22px; margin: 4px 0 4px; }
+h2 { font-size: 17px; margin: 24px 0 10px; }
+.intro { color: var(--suave); margin: 0 0 16px; }
+
+.tarjeta {
+    background: var(--tarjeta); border: 1px solid var(--borde); border-radius: var(--radio);
+    padding: 16px; margin-bottom: 12px;
+}
+
+/* Resumen en lenguaje claro */
+.resumen { background: var(--azul); color: #fff; border: none; }
+.resumen p { margin: 0 0 8px; }
+.resumen p:last-child { margin: 0; }
+.resumen .grande { font-size: 28px; font-weight: 700; }
+
+/* Indicadores */
+.indicadores { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.indicador { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: var(--radio); padding: 12px; }
+.indicador span { display: block; font-size: 12px; color: var(--suave); }
+.indicador strong { font-size: 18px; }
+
+.estados { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.estado-caja { border-radius: var(--radio); padding: 12px; text-align: center; }
+.estado-caja strong { display: block; font-size: 24px; }
+.estado-caja span { font-size: 12px; }
+
+/* Colores por estado */
+.CONCILIADA { background: var(--verde-fondo); color: var(--verde); }
+.DIFERENCIA_EXPLICADA { background: var(--ambar-fondo); color: var(--ambar); }
+.INCONSISTENTE { background: var(--rojo-fondo); color: var(--rojo); }
+.etiqueta { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 99px; }
+
+/* Formularios */
+.campo { display: block; margin-bottom: 14px; }
+.campo span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.campo input, .campo select {
+    width: 100%; padding: 12px; font-size: 16px;
+    border: 1px solid var(--borde); border-radius: 8px; background: #fff;
+}
+.campo input:focus, .campo select:focus { outline: 2px solid var(--azul); border-color: transparent; }
+.boton {
+    width: 100%; padding: 14px; font-size: 16px; font-weight: 600;
+    color: #fff; background: var(--azul); border: none; border-radius: 8px; cursor: pointer;
+}
+.boton:hover { background: var(--azul-oscuro); }
+.boton:disabled { opacity: .6; cursor: wait; }
+.boton-sec { background: transparent; color: var(--azul); border: 1px solid var(--azul); }
+.boton-sec:hover { background: #eaf1fa; }
+.error { color: var(--rojo); margin-top: 10px; }
+
+/* Explicacion paso a paso */
+.pasos { list-style: none; padding: 0; margin: 0; }
+.pasos li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--borde); }
+.pasos li:last-child { border-bottom: none; }
+.pasos .menos { color: var(--rojo); }
+.pasos .total { font-weight: 700; }
+.veredicto { border-radius: 8px; padding: 12px; margin-top: 12px; }
+.veredicto strong { display: block; margin-bottom: 4px; }
+
+/* Historial */
+.filtros { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 8px; }
+.filtro {
+    white-space: nowrap; padding: 8px 14px; font-size: 13px; border-radius: 99px;
+    border: 1px solid var(--borde); background: var(--tarjeta); color: var(--texto); cursor: pointer;
+}
+.filtro.activo { background: var(--azul); color: #fff; border-color: var(--azul); }
+.movimiento { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.movimiento .medio { font-weight: 600; }
+.movimiento .fecha { font-size: 12px; color: var(--suave); }
+.movimiento .montos { text-align: right; font-size: 14px; }
+.detalle { font-size: 13px; color: var(--suave); margin-top: 8px; }
+
+.vacio { text-align: center; color: var(--suave); padding: 24px 8px; }
+
+/* Medios de pago */
+.medio-fila { display: flex; justify-content: space-between; margin: 4px 0; font-size: 14px; }
+.medio-fila span { color: var(--suave); }
+
+/* Pantallas grandes: menu a la izquierda */
+@media (min-width: 768px) {
+    body { padding-bottom: 0; padding-left: 200px; }
+    .barra { padding-left: 216px; margin-left: -200px; }
+    .menu {
+        top: 0; bottom: 0; right: auto; width: 200px; height: auto;
+        flex-direction: column; justify-content: flex-start; gap: 4px;
+        padding: 80px 12px 12px; border-top: none; border-right: 1px solid var(--borde);
+    }
+    .menu a { flex: none; flex-direction: row; justify-content: flex-start; gap: 12px; padding: 10px 12px; border-radius: 8px; font-size: 15px; }
+    .menu a.activo { background: #eaf1fa; }
+    main { padding: 24px; }
+    h1 { font-size: 26px; }
+    .indicadores { grid-template-columns: repeat(4, 1fr); }
+    .dos-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    .lista-medios { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .boton { width: auto; padding: 12px 24px; }
+}
