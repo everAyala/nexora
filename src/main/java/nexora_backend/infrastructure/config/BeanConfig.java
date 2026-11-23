@@ -1,6 +1,8 @@
 package nexora_backend.infrastructure.config;
 
 import nexora_backend.application.usecase.ConciliarVentaUseCase;
+import nexora_backend.domain.repository.ConciliacionRepository;
+import nexora_backend.domain.repository.MedioPagoRepository;
 import nexora_backend.domain.service.MotorConciliacion;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +18,9 @@ public class BeanConfig {
     }
 
     @Bean
-    public ConciliarVentaUseCase conciliarVentaUseCase(MotorConciliacion motor) {
-        return new ConciliarVentaUseCase(motor);
+    public ConciliarVentaUseCase conciliarVentaUseCase(MotorConciliacion motor,
+                                                       MedioPagoRepository mediosPago,
+                                                       ConciliacionRepository conciliaciones) {
+        return new ConciliarVentaUseCase(motor, mediosPago, conciliaciones);
     }
 }
