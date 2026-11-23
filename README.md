@@ -1,5 +1,4 @@
-# Nexora 💰
-
+# Nexora
 **Plataforma web de conciliación financiera multicanal para pymes**
 Proyecto de Introducción a la Ingeniería — FESC, 2026
 
@@ -9,7 +8,7 @@ Proyecto de Introducción a la Ingeniería — FESC, 2026
 
 ---
 
-## 🏗️ Arquitectura: Hexagonal (Ports & Adapters)
+## Arquitectura: Hexagonal (Ports & Adapters)
 
 La lógica de negocio (dominio) está **aislada** del framework, la base de datos y la web.
 Las dependencias siempre apuntan **hacia el dominio**, nunca al revés.
@@ -53,7 +52,7 @@ nexora_backend/
 
 ---
 
-## 🧪 Pruebas unitarias
+## Pruebas unitarias
 
 Herramienta: **JUnit 5**. Para los casos de uso se usará **Mockito**, que simula los repositorios.
 Metodología: **TDD**: primero se escribe la prueba, se ve fallar y luego se implementa.
@@ -75,7 +74,7 @@ nunca `double`, para evitar errores de redondeo con dinero (equivale a `DECIMAL(
 
 ---
 
-## 🛠️ Stack
+## Stack
 
 | Capa | Tecnología |
 |---|---|
@@ -84,7 +83,7 @@ nunca `double`, para evitar errores de redondeo con dinero (equivale a `DECIMAL(
 | Pruebas | JUnit 5, Mockito |
 | Gestión | Scrum en Atlassian Jira, Git + GitHub |
 
-## ▶️ Cómo ejecutar
+## Cómo ejecutar
 
 1. Tener PostgreSQL con una base llamada `nexora_db`.
 2. Definir la variable de entorno `DB_PASSWORD` (la contraseña **no** está en el código).
@@ -93,7 +92,7 @@ nunca `double`, para evitar errores de redondeo con dinero (equivale a `DECIMAL(
    ./mvnw spring-boot:run
    ```
 
-## 🗺️ Estado del proyecto
+## Estado del proyecto
 
 - [x] Esqueleto Spring Boot con conexión segura a PostgreSQL
 - [x] Arquitectura hexagonal
